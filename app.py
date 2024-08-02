@@ -84,8 +84,8 @@ def user_input_features():
     ever_married = st.sidebar.selectbox("Ever Married", ("Yes", "No"), index=("Yes", "No").index(default_ever_married))
     work_type = st.sidebar.selectbox("Work Type", ("Private", "Self-employed", "Govt_job"), 
                                      index=("Private", "Self-employed", "Govt_job").index(default_work_type))
-    avg_glucose_level = st.sidebar.slider("Average Glucose Level", 50.0, 300.0, default_avg_glucose_level)
-    bmi = st.sidebar.slider("BMI", 10.0, 70.0, default_bmi)
+    avg_glucose_level = st.sidebar.slider("Average Glucose Level", 10.0, 400.0, default_avg_glucose_level)
+    bmi = st.sidebar.slider("BMI", 10.0, 1000.0, default_bmi)
     smoking_status = st.sidebar.selectbox("Smoking Status", ("formerly smoked", "never smoked", "smokes"), 
                                           index=("formerly smoked", "never smoked", "smokes").index(default_smoking_status))
     data = {
