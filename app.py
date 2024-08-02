@@ -11,7 +11,7 @@ models = {
     "KNeighbors Classifier": "grid_search_knn.pkl",
     "Logistic Regression": "grid_search_lr.pkl",
     "XGBoost Classifier": "grid_search_xgb.pkl",
-    "Convolutional Neural Network": "cnn.keras"
+    "Convolutional Neural Network": "cnn.h5"
 }
 label_encoder_gender = joblib.load('label_encoder_gender.joblib')
 label_encoder_work_type = joblib.load('label_encoder_work_type.joblib')
@@ -36,7 +36,7 @@ custom_objects = {
 }
 
 # Load CNN model
-cnn_model = load_model("cnn.keras", custom_objects=custom_objects, compile=False)
+cnn_model = load_model("cnn.h5", custom_objects=custom_objects, compile=False)
 
 # Set up Streamlit
 st.title('Stroke Prediction App')
