@@ -36,7 +36,7 @@ custom_objects = {
 }
 
 # Load CNN model
-cnn_model = load_model("cnn.h5", custom_objects=custom_objects, compile=False)
+cnn_model = load_model("cnn.h5", custom_objects=custom_objects, compile=False, safe_mode= False)
 
 # Set up Streamlit
 st.title('Stroke Prediction App')
