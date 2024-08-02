@@ -35,7 +35,8 @@ custom_objects = {
     'conditional_max_pooling': Lambda(conditional_max_pooling)
 }
 
-cnn_model = load_model("cnn.keras", custom_objects=custom_objects, compile=False, safe_mode=False)
+# Load CNN model
+cnn_model = load_model("cnn.keras", custom_objects=custom_objects, compile=False)
 
 # Set up Streamlit
 st.title('Stroke Prediction App')
