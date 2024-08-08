@@ -244,32 +244,17 @@ st.sidebar.title('Model Information and Transparency')
 st.sidebar.subheader('Logistic Regression Metrics')
 st.sidebar.write('''
 - **Accuracy:** 74%
-- **Recall:**  77%
-- **Precision:** 73%
-- **F1 Score:** 75%
-- **MCC:** 49%
-- **ROC AUC:** 80%
 ''')
 # Information about Random Forest
 st.sidebar.subheader('Random Forest Metrics')
 st.sidebar.write('''
 - **Accuracy:** 82%
-- **Recall:**  87%
-- **Precision:** 79%
-- **F1 Score:** 83%
-- **MCC:** 64%
-- **ROC AUC:** 89%
 ''')
 
 # Information about XGBoost
 st.sidebar.subheader('XGBoost Metrics')
 st.sidebar.write('''
 - **Accuracy:** 81%
-- **Recall:** 84%
-- **Precision:** 79%
-- **F1 Score:** 81%
-- **MCC:** 61%
-- **ROC AUC:** 83%
 ''')
 
 # Information about KNN
@@ -277,19 +262,10 @@ st.sidebar.subheader('K-Nearest Neighbors (KNN) Metrics')
 st.sidebar.write('''
 **Mean Test Metrics:**
 - **Accuracy:** 80%
-- **Recall:** 90%
-- **Precision:** 75%
-- **F1 Score:** 82%
-- **MCC:** 62%
-- **ROC AUC:** 89%
 ''')
 
 # Discussion section
 st.sidebar.subheader("**CNN Metrics:**")
 st.sidebar.write('''- Test Accuracy: 85%
 - Precision: 84%
-- Recall: 89%
-- F1 Score: 87%
-- MCC: 70%
-- ROC AUC Score: 89%
 ''')
