@@ -260,7 +260,6 @@ st.sidebar.write('''
 # Information about KNN
 st.sidebar.subheader('K-Nearest Neighbors (KNN) Metrics')
 st.sidebar.write('''
-**Mean Test Metrics:**
 - **Accuracy:** 80%
 ''')
 
