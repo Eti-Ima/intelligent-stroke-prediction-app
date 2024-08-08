@@ -267,5 +267,4 @@ st.sidebar.write('''
 # Discussion section
 st.sidebar.subheader("**CNN Metrics:**")
 st.sidebar.write('''- Test Accuracy: 85%
-- Precision: 84%
 ''')
