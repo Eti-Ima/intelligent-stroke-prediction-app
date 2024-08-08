@@ -83,9 +83,9 @@ st.info('''
 - **Model Interpretability:** View feature importance to understand what factors influence your risk.
 
 **How to Use:**
-1. Enter your details in the sidebar.
-2. Click the "Submit" button to get predictions and recommendations.
-3. Follow the health tips provided to maintain or improve your health.
+1. Enter your health information in the sidebar
+2. Choose a prediction model
+3. Click the "predict button" to get your result and health recommendations.
 ''')
 
 # Streamlit app
@@ -151,7 +151,7 @@ rdf=df
 model_choice = st.sidebar.selectbox("Choose Model", list(models.keys()))
 
 # Add a submit button
-if st.sidebar.button('Submit'):
+if st.sidebar.button('Predict'):
     if model_choice != "Convolutional Neural Network":
         model = loaded_models[model_choice]
         proba = model.predict_proba(processed_df)
