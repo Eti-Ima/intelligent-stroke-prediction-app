@@ -87,11 +87,6 @@ st.info('''
 1. Enter your details in the sidebar.
 2. Click the "Submit" button to get predictions and recommendations.
 3. Follow the health tips provided to maintain or improve your health.
-
-**Disclaimer:**
-This app is for informational purposes only and should not be used as a substitute for professional medical advice. Always consult with a healthcare provider for any health concerns.
-
-Developed and powered by machine learning models to help you stay informed and healthy.
 ''')
 
 # Streamlit app
