@@ -230,45 +230,6 @@ def load_data(path):
 all_data = load_data(data_path)
 
 st.header('', divider='grey')
-
-# Create the first figure
-fig1 = plt.figure(figsize=(16, 4))
-plt.scatter(features.age, bmi, color="green", s=50, label='Your Data')
-plt.plot(all_data['age'], all_data['bmi'], color='blue', label='BMI Trend')
-plt.xlabel('Age')
-plt.ylabel('BMI')
-plt.title('BMI vs Age')
-plt.legend()
-
-# Create the second figure
-fig2 = plt.figure(figsize=(16, 4))
-plt.scatter(features.age, temp_glucose, color="green", s=50, label='Your Data')
-plt.plot(all_data['age'], all_data['avg_glucose_level'], color='blue', label='Glucose Level Trend')
-plt.xlabel('Age')
-plt.ylabel('Average Glucose Level')
-plt.title('Average Glucose Level vs Age')
-plt.legend()
-
-# Create the third figure
-fig3 = plt.figure(figsize=(16, 4))
-hypertension_counts = all_data['hypertension'].value_counts()
-plt.bar(hypertension_counts.index, hypertension_counts.values, color='blue')
-plt.xlabel('Hypertension Status')
-plt.ylabel('Count')
-plt.title('Hypertension vs Stroke')
-plt.xticks(ticks=[0, 1], labels=['No', 'Yes'])
-
-# Streamlit display
-st.write("Your data in the graphs below is marked by the green dot")
-st.pyplot(fig1)
-st.write(
-    "This graph displays the trend between BMI (Body Mass Index) and age in relation to the probability of experiencing a stroke. As the data illustrates, there's a certain correlation between higher BMI values and an increased risk of stroke, especially as one advances in age. However, it's essential to note that while BMI can be an indicative factor, individual risks may vary based on genetics, lifestyle, and other health conditions.")
-st.pyplot(fig2)
-st.write(
-    "The graph showcases the relationship between average glucose levels, age, and the likelihood of a stroke. Elevated glucose levels, often indicative of conditions like diabetes, can heighten the risk of vascular complications, including strokes. As seen in the trend, older individuals with higher glucose levels might be at a heightened risk. Still, individual circumstances and overall health play crucial roles in determining the actual risk.")
-st.pyplot(fig3)
-st.write(
-    "This bar graph presents the association between hypertension (high blood pressure) and the incidence of stroke. Hypertension is a well-known risk factor for cardiovascular diseases, including stroke. As the graph reveals, individuals with more severe hypertension levels have a progressively increased likelihood of experiencing a stroke. Regular blood pressure checks and management are vital for mitigating this risk.")# Display dataset summary
 # st.title('Dataset Summary')
 # st.subheader('Overview')
 # st.write(data.head())
