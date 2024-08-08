@@ -5,7 +5,6 @@ import joblib
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from keras.models import load_model
 from keras.layers import Conv1D, MaxPooling1D, Dropout, Flatten, Dense, BatchNormalization, Lambda
-import matplotlib.pyplot as plt
 from sklearn.preprocessing import OneHotEncoder
 # Load your trained models
 models = {
@@ -215,7 +214,7 @@ if st.sidebar.button('Submit'):
         for tip in tips:
             st.write(f"- {tip}")
 
-    st.subheader('Feature Importance (Random Forest)')
+    st.subheader('Feature Importance ')
     rf_model = joblib.load('best_Random Forest Classifier_model.pkl')
     importances = rf_model.feature_importances_
     features = rdf.columns
