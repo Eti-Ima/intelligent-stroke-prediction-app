@@ -38,12 +38,44 @@ custom_objects = {
 # Load CNN model
 cnn_model = load_model("cnn.h5", custom_objects=custom_objects, compile=False, safe_mode= False)
 
-# Set up Streamlit
-st.title('Stroke Prediction App')
 
+st.set_page_config(page_title="Intelligent Stroke Predictor", page_icon=":tada:")
+
+# ---- HEADER SECTION ----
+with st.container():
+    temp_bmi = 0
+    temp_glucose = 0
+
+    # st.subheader("WADDUP FUCKERS :wave:")
+    st.title("Intelligent Stroke Predictor")
+    st.subheader(
+        "It never hurts to check..."
+    )
+
+
+# ---- About us
+
+st.header('', divider='red')
+
+st.markdown("""
+Knowledge is power when it comes to your health. We believe that understanding your individual risk factors for stroke is the first step toward a healthier future. Our mission is to empower you with knowledge and awareness, enabling you to take proactive steps to reduce your risk of stroke.
+
+Stroke is a serious medical condition, but many of its risk factors are manageable through lifestyle changes and early intervention. By providing us with some basic personal information, you can gain valuable insights into your unique risk profile. Our user-friendly tool will analyze your data and provide you with personalized recommendations to reduce your risk of stroke.
+
+Remember, this tool is not a substitute for professional medical advice, diagnosis, or treatment. Always consult with a healthcare professional for a comprehensive assessment. However, our Stroke Risk Checker can serve as a useful starting point to help you take control of your health and well-being.
+
+Your health matters, and taking proactive steps today can make a significant difference in your future. Let's work together to reduce the risk of stroke and promote a healthier, happier life. Get started now and take the first step towards a stroke-free tomorrow.
+
+
+
+
+
+Personal data will NOT be collected.
+"""
+            )
 st.title('About')
 st.info('''
-### Stroke Prediction App
+### Intelligent Stroke Predictor
 
 This app provides predictions on the likelihood of having a stroke based on user inputs. It leverages multiple machine learning models to offer accurate predictions and health recommendations.
 
