@@ -65,11 +65,9 @@ Knowledge is power when it comes to your health. We believe that understanding y
 
 Stroke is a serious medical condition, but many of its risk factors are manageable through lifestyle changes and early intervention. By providing us with some basic personal information, you can gain valuable insights into your unique risk profile. Our user-friendly tool will analyze your data and provide you with personalized recommendations to reduce your risk of stroke.
 
-Remember, this tool is not a substitute for professional medical advice, diagnosis, or treatment. Always consult with a healthcare professional for a comprehensive assessment. However, our Stroke Risk Checker can serve as a useful starting point to help you take control of your health and well-being.
+Remember,this is an Arficial Intelligence(AI) tool and it is not a substitute for professional medical advice or treatment. Always consult with a healthcare professional for a comprehensive assessment. However, our Stroke Risk Checker can serve as a useful starting point to help you take control of your health and well-being.
 
 Your health matters, and taking proactive steps today can make a significant difference in your future. Let's work together to reduce the risk of stroke and promote a healthier, happier life. Get started now and take the first step towards a stroke-free tomorrow.
-
-
 
 
 
