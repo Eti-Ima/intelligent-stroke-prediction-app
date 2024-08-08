@@ -5,7 +5,7 @@ import joblib
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from keras.models import load_model
 from keras.layers import Conv1D, MaxPooling1D, Dropout, Flatten, Dense, BatchNormalization, Lambda
-import seaborn as sns
+
 from sklearn.preprocessing import OneHotEncoder
 # Load your trained models
 models = {
@@ -231,18 +231,34 @@ all_data = load_data(data_path)
 
 st.header('', divider='grey')
 
+# Create the first figure
 fig1 = plt.figure(figsize=(16, 4))
-# sns.pointplot(data=df, x="age", y=temp_bmi, color='green')
+plt.scatter(features.age, bmi, color="green", s=50, label='Your Data')
+plt.plot(all_data['age'], all_data['bmi'], color='blue', label='BMI Trend')
+plt.xlabel('Age')
+plt.ylabel('BMI')
+plt.title('BMI vs Age')
+plt.legend()
 
-sns.lineplot(data=all_data, x="age", y="bmi", hue="stroke")
-plt.scatter(features.age,bmi, color = "green", s = 50)
+# Create the second figure
 fig2 = plt.figure(figsize=(16, 4))
-#sns.pointplot(data=df, x="age", y=temp_glucose, color='green')
-sns.lineplot(data=all_data, x="age", y="avg_glucose_level", hue="stroke")
-plt.scatter(features.age, temp_glucose, color="green", s = 50)
-fig3 = plt.figure(figsize=(16, 4))
-sns.barplot(x=all_data.stroke, y=all_data.hypertension)
+plt.scatter(features.age, temp_glucose, color="green", s=50, label='Your Data')
+plt.plot(all_data['age'], all_data['avg_glucose_level'], color='blue', label='Glucose Level Trend')
+plt.xlabel('Age')
+plt.ylabel('Average Glucose Level')
+plt.title('Average Glucose Level vs Age')
+plt.legend()
 
+# Create the third figure
+fig3 = plt.figure(figsize=(16, 4))
+hypertension_counts = all_data['hypertension'].value_counts()
+plt.bar(hypertension_counts.index, hypertension_counts.values, color='blue')
+plt.xlabel('Hypertension Status')
+plt.ylabel('Count')
+plt.title('Hypertension vs Stroke')
+plt.xticks(ticks=[0, 1], labels=['No', 'Yes'])
+
+# Streamlit display
 st.write("Your data in the graphs below is marked by the green dot")
 st.pyplot(fig1)
 st.write(
@@ -250,12 +266,9 @@ st.write(
 st.pyplot(fig2)
 st.write(
     "The graph showcases the relationship between average glucose levels, age, and the likelihood of a stroke. Elevated glucose levels, often indicative of conditions like diabetes, can heighten the risk of vascular complications, including strokes. As seen in the trend, older individuals with higher glucose levels might be at a heightened risk. Still, individual circumstances and overall health play crucial roles in determining the actual risk.")
-
 st.pyplot(fig3)
 st.write(
-    "This bar graph presents the association between hypertension (high blood pressure) and the incidence of stroke. Hypertension is a well-known risk factor for cardiovascular diseases, including stroke. As the graph reveals, individuals with more severe hypertension levels have a progressively increased likelihood of experiencing a stroke. Regular blood pressure checks and management are vital for mitigating this risk.")
-
-# Display dataset summary
+    "This bar graph presents the association between hypertension (high blood pressure) and the incidence of stroke. Hypertension is a well-known risk factor for cardiovascular diseases, including stroke. As the graph reveals, individuals with more severe hypertension levels have a progressively increased likelihood of experiencing a stroke. Regular blood pressure checks and management are vital for mitigating this risk.")# Display dataset summary
 # st.title('Dataset Summary')
 # st.subheader('Overview')
 # st.write(data.head())
