@@ -225,7 +225,33 @@ data_path = "health_data.csv"
 def load_data(path):
     return pd.read_csv(path)
 
-data = load_data(data_path)
+all_data = load_data(data_path)
+
+st.header('', divider='grey')
+
+fig1 = plt.figure(figsize=(16, 4))
+# sns.pointplot(data=df, x="age", y=temp_bmi, color='green')
+
+sns.lineplot(data=all_data, x="age", y="bmi", hue="stroke")
+plt.scatter(features.age,bmi, color = "green", s = 50)
+fig2 = plt.figure(figsize=(16, 4))
+#sns.pointplot(data=df, x="age", y=temp_glucose, color='green')
+sns.lineplot(data=all_data, x="age", y="avg_glucose_level", hue="stroke")
+plt.scatter(features.age, temp_glucose, color="green", s = 50)
+fig3 = plt.figure(figsize=(16, 4))
+sns.barplot(x=all_data.stroke, y=all_data.hypertension)
+
+st.write("Your data in the graphs below is marked by the green dot")
+st.pyplot(fig1)
+st.write(
+    "This graph displays the trend between BMI (Body Mass Index) and age in relation to the probability of experiencing a stroke. As the data illustrates, there's a certain correlation between higher BMI values and an increased risk of stroke, especially as one advances in age. However, it's essential to note that while BMI can be an indicative factor, individual risks may vary based on genetics, lifestyle, and other health conditions.")
+st.pyplot(fig2)
+st.write(
+    "The graph showcases the relationship between average glucose levels, age, and the likelihood of a stroke. Elevated glucose levels, often indicative of conditions like diabetes, can heighten the risk of vascular complications, including strokes. As seen in the trend, older individuals with higher glucose levels might be at a heightened risk. Still, individual circumstances and overall health play crucial roles in determining the actual risk.")
+
+st.pyplot(fig3)
+st.write(
+    "This bar graph presents the association between hypertension (high blood pressure) and the incidence of stroke. Hypertension is a well-known risk factor for cardiovascular diseases, including stroke. As the graph reveals, individuals with more severe hypertension levels have a progressively increased likelihood of experiencing a stroke. Regular blood pressure checks and management are vital for mitigating this risk.")
 
 # Display dataset summary
 # st.title('Dataset Summary')
@@ -240,131 +266,55 @@ data = load_data(data_path)
 # st.write(missing_values)
 # Add a section for Model Information and Transparency
 st.sidebar.title('Model Information and Transparency')
-
-# Information about Logistic Regression
-st.sidebar.subheader('Logistic Regression')
+st.sidebar.subheader('Logistic Regression Metrics')
 st.sidebar.write('''
-**Parameters:**
-- **C:** 1.5 (moderate regularization)
-- **max_iter:** 100
-- **solver:** saga
-
-**Best Score:** 0.7435
-
-**Mean Test Metrics:**
-- **Accuracy:** 0.7435
-- **Recall:** 0.7657
-- **Precision:** 0.7342
-- **F1 Score:** 0.7490
-- **MCC:** 0.4883
-- **ROC AUC:** 0.7994
+- **Accuracy:** 74%
+- **Recall:**  77%
+- **Precision:** 73%
+- **F1 Score:** 75%
+- **MCC:** 49%
+- **ROC AUC:** 80%
 ''')
 # Information about Random Forest
-st.sidebar.subheader('Random Forest')
+st.sidebar.subheader('Random Forest Metrics')
 st.sidebar.write('''
-**Parameters:**
-- **max_depth:** 30
-- **min_samples_leaf:** 1
-- **min_samples_split:** 2
-- **n_estimators:** 50
-
-**Best Score:** 0.8183
-
-**Mean Test Metrics:**
-- **Accuracy:** 0.8183
-- **Recall:** 0.8706
-- **Precision:** 0.7942
-- **F1 Score:** 0.8282
-- **MCC:** 0.6436
-- **ROC AUC:** 0.8878
+- **Accuracy:** 82%
+- **Recall:**  87%
+- **Precision:** 79%
+- **F1 Score:** 83%
+- **MCC:** 64%
+- **ROC AUC:** 89%
 ''')
 
 # Information about XGBoost
-st.sidebar.subheader('XGBoost')
+st.sidebar.subheader('XGBoost Metrics')
 st.sidebar.write('''
-**Parameters:**
-- **colsample_bytree:** 1.0
-- **learning_rate:** 0.2
-- **max_depth:** 10
-- **n_estimators:** 100
-- **subsample:** 1.0
-
-**Best Score:** 0.8058
-
-**Mean Test Metrics:**
-- **Accuracy:** 0.8058
-- **Recall:** 0.8409
-- **Precision:** 0.7911
-- **F1 Score:** 0.8131
-- **MCC:** 0.6163
-- **ROC AUC:** 0.8344
+- **Accuracy:** 81%
+- **Recall:** 84%
+- **Precision:** 79%
+- **F1 Score:** 81%
+- **MCC:** 61%
+- **ROC AUC:** 83%
 ''')
 
 # Information about KNN
-st.sidebar.subheader('K-Nearest Neighbors (KNN)')
+st.sidebar.subheader('K-Nearest Neighbors (KNN) Metrics')
 st.sidebar.write('''
-**Parameters:**
-- **metric:** Manhattan
-- **n_neighbors:** 5
-- **weights:** Distance
-
-**Best Score:** 0.8034
-
 **Mean Test Metrics:**
-- **Accuracy:** 0.8034
-- **Recall:** 0.9052
-- **Precision:** 0.7544
-- **F1 Score:** 0.8218
-- **MCC:** 0.6219
-- **ROC AUC:** 0.8876
+- **Accuracy:** 80%
+- **Recall:** 90%
+- **Precision:** 75%
+- **F1 Score:** 82%
+- **MCC:** 62%
+- **ROC AUC:** 89%
 ''')
 
 # Discussion section
-st.sidebar.title('Model Performance Discussion')
-st.sidebar.write('''
-**Performance Comparison:**
-- The Random Forest model achieved the highest overall performance across the metrics evaluated, with notably strong recall and ROC AUC, indicating its robustness in identifying positive cases.
-- Logistic Regression, while slightly lower in accuracy, maintained solid performance metrics and was consistent throughout various handling techniques for class imbalance.
-- The XGBoost model performed well but did not surpass the Random Forest's metrics. However, it may still be preferred in scenarios requiring faster predictions or with larger datasets due to its efficient handling of feature importance.
-- KNN model showed high recall but slightly lower precision than the XGBoost and Random Forest model, which could be indicative of potential overfitting on the minority class, making it less reliable for applications requiring a balanced approach.
-
-**Performance Comparison:**
-- The Random Forest model achieved the highest accuracy (0.8183) and F1 score (0.8282), indicating strong overall performance.
-- The XGBoost model also performed well, with slightly lower accuracy (0.8058) and F1 score (0.8131) compared to Random Forest.
-- KNN showed impressive recall (0.9052) but slightly lower accuracy (0.8034) and precision (0.7544), leading to a strong F1 score (0.8218).
-- Logistic Regression had the lowest scores among the models, with an accuracy of 0.7435 and an F1 score of 0.7490.
-
-**Metric Highlights:**
-- Recall was highest for KNN (0.9052), indicating that it effectively identified positive instances.
-- Precision was highest for Random Forest (0.7942), suggesting it had fewer false positives compared to the other models.
-- Matthews Correlation Coefficient (MCC), which measures the quality of binary classifications, was highest for Random Forest (0.6436), followed by XGBoost (0.6163).
-
-**Model Selection:**
-- Based on overall performance, Random Forest appears to be the best model for this dataset, balancing high accuracy, precision, recall, and F1 score.
-- XGBoost is a strong contender and might be preferred if interpretability and feature importance are critical factors.
-- KNN is notable for its high recall, making it suitable for applications where identifying positive cases is crucial.
-
-**Data Handling:**
-- Imbalance Handling: Applied SMOTE to balance the dataset.
-- Normalization: Applied using StandardScaler.
-- Split: 70% training and 30% testing.
-
-**Model Architecture and Training (CNN):**
-- Conv1D (64 filters) -> BatchNormalization -> MaxPooling1D -> Dropout (0.5)
-- Conv1D (128 filters) -> BatchNormalization -> MaxPooling1D -> Dropout (0.5)
-- Flatten -> Dense (100 units) -> Dropout (0.5)
-- Dense (1 unit, sigmoid activation)
-- EarlyStopping: Used with patience of 10.
-- Epochs: Up to 3000.
-- Batch Size: 512.
-
-**CNN Results:**
-- Test Accuracy: 85.06%
-- Precision: 0.84
-- Recall: 0.8936
-- F1 Score: 0.8660
-- MCC: 0.6992
-- ROC AUC Score: 0.8864
+st.sidebar.subheader("**CNN Metrics:**")
+st.sidebar.write('''- Test Accuracy: 85%
+- Precision: 84%
+- Recall: 89%
+- F1 Score: 87%
+- MCC: 70%
+- ROC AUC Score: 89%
 ''')
-
-# Add a footer
