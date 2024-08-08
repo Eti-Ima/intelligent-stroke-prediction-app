@@ -5,6 +5,8 @@ import joblib
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from keras.models import load_model
 from keras.layers import Conv1D, MaxPooling1D, Dropout, Flatten, Dense, BatchNormalization, Lambda
+import seaborn as sns
+from sklearn.preprocessing import OneHotEncoder
 # Load your trained models
 models = {
     'Random Forest Classifier': "grid_search_rf.pkl",
