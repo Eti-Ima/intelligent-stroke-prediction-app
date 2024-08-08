@@ -157,7 +157,7 @@ if st.sidebar.button('Submit'):
     if model_choice != "Convolutional Neural Network":
         model = loaded_models[model_choice]
         proba = model.predict_proba(processed_df)
-        st.write(f"{model_choice} - Raw Probabilities: {proba}")
+        #st.write(f"{model_choice} - Raw Probabilities: {proba}")
         prediction = proba[0][1]  # Probability of class 1 (Stroke)
         probabilities = proba[0]  # Probabilities for all classes
     else:
