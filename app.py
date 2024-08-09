@@ -165,8 +165,8 @@ if st.sidebar.button('Predict'):
             processed_df = processed_df.values
         cnn_input = processed_df.reshape(processed_df.shape[0], processed_df.shape[1], 1)
         cnn_proba = cnn_model.predict(cnn_input)
-        prediction = cnn_proba[0][0]
-        probabilities = [1 - cnn_proba[0][0], cnn_proba[0][0]]
+        prediction = cnn_proba[0][1]
+        probabilities = [1 - cnn_proba[0][1], cnn_proba[0][1]]
 
     # Risk categorization thresholds
     def categorize_risk(prob):
@@ -192,7 +192,7 @@ if st.sidebar.button('Predict'):
             tips.append("Consider quitting smoking to improve your overall health.")
         
         # Encouragement for those with normal inputs
-        if input_data['hypertension'] == 0 and input_data['heart_disease'] == 0 and input_data['bmi'] <= 25 and input_data['avg_glucose_level'] <= 140 and input_data['smoking_status'] == "never smoked" and prediction<0.5:
+        if input_data['hypertension'] == 0 and input_data['heart_disease'] == 0 and input_data['bmi'] <= 25 and input_data['avg_glucose_level'] <= 140 and input_data['smoking_status'] == "never smoked" :
             tips.append("Great job! Continue with your healthy lifestyle and regular check-ups.")
             tips.append("Keep maintaining a balanced diet rich in fruits, vegetables, and whole grains.")
             tips.append("Stay active with regular physical exercise, at least 30 minutes a day.")
