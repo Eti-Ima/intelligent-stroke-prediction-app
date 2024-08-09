@@ -165,8 +165,8 @@ if st.sidebar.button('Predict'):
             processed_df = processed_df.values
         cnn_input = processed_df.reshape(processed_df.shape[0], processed_df.shape[1], 1)
         cnn_proba = cnn_model.predict(cnn_input)
-        prediction = cnn_proba[0][1]
-        probabilities = [1 - cnn_proba[0][1], cnn_proba[0][1]]
+        prediction = 1-cnn_proba[0][0]
+        probabilities = [cnn_proba[0][0], 1-cnn_proba[0][0]]
 
     # Risk categorization thresholds
     def categorize_risk(prob):
