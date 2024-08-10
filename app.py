@@ -190,6 +190,12 @@ if st.sidebar.button('Predict'):
             tips.append("Control your blood sugar levels with a proper diet and medication if necessary.")
         if input_data['smoking_status'] != "never smoked":
             tips.append("Consider quitting smoking to improve your overall health.")
+        if prediction<0.5:
+            tips.append("You are currently at a lower risk for stroke, but it's important to maintain a healthy lifestyle to keep it that way.")
+        else:
+            tips.append("You may be at a higher risk for stroke. Consider seeking advice from a healthcare professional for a comprehensive health evaluation and personalized advice.")
+
+
         
         # Encouragement for those with normal inputs
         if input_data['hypertension'] == 0 and input_data['heart_disease'] == 0 and input_data['bmi'] <= 25 and input_data['avg_glucose_level'] <= 140 and input_data['smoking_status'] == "never smoked" and prediction <=0.5 :
