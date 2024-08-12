@@ -223,7 +223,7 @@ if st.sidebar.button('Predict'):
     importances = rf_model.feature_importances_
     features = rdf.columns
     feature_importance_df = pd.DataFrame({'feature': features, 'importance': importances})
-    st.bar_chart(feature_importance_df.set_index('feature'))
+    #st.bar_chart(feature_importance_df.set_index('feature'))
 
 data_path = "health_data.csv"
 @st.cache_data
