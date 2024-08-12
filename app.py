@@ -212,7 +212,7 @@ if st.sidebar.button('Predict'):
         for tip in tips:
             st.write(f"- {tip}")
 
-    st.subheader('Feature Importance ')
+    #st.subheader('Feature Importance ')
     rf_model = joblib.load('best_Random Forest Classifier_model.pkl')
     importances = rf_model.feature_importances_
     features = rdf.columns
