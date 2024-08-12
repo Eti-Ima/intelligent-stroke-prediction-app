@@ -60,8 +60,11 @@ st.header('', divider='red')
 
 st.markdown("""
 This app provides predictions on the likelihood of having a stroke based on user inputs. It leverages multiple machine learning models to offer accurate predictions and health recommendations.
+
 Remember,this is an Arficial Intelligence(AI) tool and it is not a substitute for professional medical advice or treatment. Always consult with a healthcare professional for a comprehensive assessment. However, our Stroke Risk Checker can serve as a useful starting point to help you take control of your health and well-being.
+
 Your health matters, and taking proactive steps today can make a significant difference in your future. Let's work together to reduce the risk of stroke and promote a healthier, happier life. Get started now and take the first step towards a stroke-free tomorrow.
+
 Personal data will NOT be collected.
 """
             )
