@@ -210,12 +210,12 @@ if st.sidebar.button('Predict'):
         for tip in tips:
             st.write(f"- {tip}")
 
-    #st.subheader('Feature Importance ')
+    st.subheader('Feature Importance ')
     rf_model = joblib.load('best_Random Forest Classifier_model.pkl')
     importances = rf_model.feature_importances_
     features = rdf.columns
     feature_importance_df = pd.DataFrame({'feature': features, 'importance': importances})
-    #st.bar_chart(feature_importance_df.set_index('feature'))
+    st.bar_chart(feature_importance_df.set_index('feature'))
 
 data_path = "health_data.csv"
 @st.cache_data
